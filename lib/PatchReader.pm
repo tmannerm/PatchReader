@@ -2,6 +2,6 @@ package PatchReader;
 
 use strict;
 
-$PatchReader::VERSION = '0.9';
+$PatchReader::VERSION = '0.9.1';
 
 1
