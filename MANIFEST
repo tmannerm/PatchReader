@@ -14,3 +14,4 @@ lib/PatchReader/PatchInfoGrabber.pm
 lib/PatchReader/Raw.pm
 README
 t/001use.t
+META.yml                                 Module meta-data (added by MakeMaker)

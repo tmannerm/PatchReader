@@ -66,6 +66,6 @@ end_file and end_patch.
 
 =cut
 
-$PatchReader::VERSION = '0.9.2';
+$PatchReader::VERSION = '0.9.3';
 
 1

@@ -61,7 +61,7 @@ sub next_line {
 
     $this->{IN_HEADER} = 1;
 
-  } elsif ($line =~ /^RCS file: (\S+)/) {
+  } elsif ($line =~ /^RCS file: (.+)/) {
     $this->{FILE_STATE}{rcs_filename} = $1;
 
     $this->{IN_HEADER} = 1;
@@ -71,7 +71,7 @@ sub next_line {
 
     $this->{IN_HEADER} = 1;
 
-  } elsif ($line =~ /^Index:\s*(\S+)/) {
+  } elsif ($line =~ /^Index:\s*(.+)/) {
     $this->_maybe_end_file();
 
     $this->{FILE_STATE}{filename} = $1;
