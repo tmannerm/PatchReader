@@ -198,6 +198,11 @@ sub _start_file {
   my $this = shift;
 
   # Send start notification and set state
+  if (!$this->{FILE_STATE}) {
+    $this->{FILE_STATE} = { filename => "file_not_specified_in_diff" };
+  }
+
+  # Send start notification and set state
   $this->{TARGET}->start_file($this->{FILE_STATE});
   $this->{FILE_STARTED} = 1;
   delete $this->{FILE_NEVER_STARTED};
