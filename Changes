@@ -8,3 +8,5 @@
   Fix problem with patches with spaces in them
 0.9.4 7/5/2004
   Handle patches with malformed file sections better
+0.9.5 7/17/2004
+  Parse and send function info for -p patches

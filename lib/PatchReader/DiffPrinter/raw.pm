@@ -50,7 +50,7 @@ sub next_section {
   my ($section) = @_;
 
   my $fh = $this->{OUTFILE};
-  print $fh "@@ -$section->{old_start},$section->{old_lines} +$section->{new_start},$section->{new_lines} @@\n";
+  print $fh "@@ -$section->{old_start},$section->{old_lines} +$section->{new_start},$section->{new_lines} @@ $section->{func_info}\n";
   foreach my $line (@{$section->{lines}}) {
     $line =~ s/(\r?\n?)$/\n/;
     print $fh $line;
