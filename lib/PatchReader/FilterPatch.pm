@@ -17,27 +17,27 @@ sub new {
 
 sub start_patch {
   my $this = shift;
-  $this->{TARGET}->start_patch(@_);
+  $this->{TARGET}->start_patch(@_) if $this->{TARGET};
 }
 
 sub end_patch {
   my $this = shift;
-  $this->{TARGET}->end_patch(@_);
+  $this->{TARGET}->end_patch(@_) if $this->{TARGET};
 }
 
 sub start_file {
   my $this = shift;
-  $this->{TARGET}->start_file(@_);
+  $this->{TARGET}->start_file(@_) if $this->{TARGET};
 }
 
 sub end_file {
   my $this = shift;
-  $this->{TARGET}->end_file(@_);
+  $this->{TARGET}->end_file(@_) if $this->{TARGET};
 }
 
 sub next_section {
   my $this = shift;
-  $this->{TARGET}->next_section(@_);
+  $this->{TARGET}->next_section(@_) if $this->{TARGET};
 }
 
 1

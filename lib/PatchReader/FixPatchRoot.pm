@@ -52,7 +52,7 @@ sub flush_delayed_commands {
 sub end_patch {
   my $this = shift;
   $this->flush_delayed_commands();
-  $this->{TARGET}->end_patch(@_);
+  $this->{TARGET}->end_patch(@_) if $this->{TARGET};
 }
 
 sub start_file {
@@ -100,7 +100,7 @@ sub start_file {
       return;
     }
   }
-  $this->{TARGET}->start_file($file);
+  $this->{TARGET}->start_file($file) if $this->{TARGET};
 }
 
 sub end_file {
@@ -108,7 +108,7 @@ sub end_file {
   if (exists($this->{DELAYED_COMMANDS})) {
     push @{$this->{DELAYED_COMMANDS}}, [ "end_file", { %{$_[0]} } ];
   } else {
-    $this->{TARGET}->end_file(@_);
+    $this->{TARGET}->end_file(@_) if $this->{TARGET};
   }
 }
 
@@ -117,7 +117,7 @@ sub next_section {
   if (exists($this->{DELAYED_COMMANDS})) {
     push @{$this->{DELAYED_COMMANDS}}, [ "section", { %{$_[0]} } ];
   } else {
-    $this->{TARGET}->next_section(@_);
+    $this->{TARGET}->next_section(@_) if $this->{TARGET};
   }
 }
 

@@ -152,6 +152,7 @@ sub next_line {
 
 sub start_lines {
   my $this = shift;
+  die "No target specified: call sends_data_to!" if !$this->{TARGET};
   delete $this->{FILE_STARTED};
   delete $this->{FILE_STATE};
   delete $this->{SECTION_STATE};

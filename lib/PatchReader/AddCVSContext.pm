@@ -55,7 +55,7 @@ sub start_file {
   $this->{REVISION} = $file->{old_revision};
   $this->{FILENAME} = $file->{filename};
   $this->{SECTION_END} = -1;
-  $this->{TARGET}->start_file(@_);
+  $this->{TARGET}->start_file(@_) if $this->{TARGET};
 }
 
 sub end_file {
@@ -67,7 +67,7 @@ sub end_file {
     unlink $this->{FILE}; # If it fails, it fails ...
     delete $this->{FILE};
   }
-  $this->{TARGET}->end_file(@_);
+  $this->{TARGET}->end_file(@_) if $this->{TARGET};
 }
 
 sub next_section {
@@ -162,7 +162,7 @@ sub flush_section {
                                 $this->{SECTION_END} + $this->{CONTEXT});
     }
     # Send the section and line notifications
-    $this->{TARGET}->next_section($this->{SECTION});
+    $this->{TARGET}->next_section($this->{SECTION}) if $this->{TARGET};
     delete $this->{SECTION};
     $this->{SECTION_END} = 0;
   }
