@@ -1,0 +1,15 @@
+Changes
+MANIFEST
+Makefile.PL
+lib/PatchReader.pm
+lib/PatchReader/AddCVSContext.pm
+lib/PatchReader/Base.pm
+lib/PatchReader/CVSClient.pm
+lib/PatchReader/DiffPrinter/raw.pm
+lib/PatchReader/DiffPrinter/template.pm
+lib/PatchReader/FilterPatch.pm
+lib/PatchReader/FixPatchRoot.pm
+lib/PatchReader/NarrowPatch.pm
+lib/PatchReader/PatchInfoGrabber.pm
+lib/PatchReader/Raw.pm
+README
