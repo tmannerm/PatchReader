@@ -78,6 +78,12 @@ sub start_file {
     $this->{DIFF_ROOT} = substr($file->{rcs_filename},
                                 length($this->{REPOSITORY_ROOT}));
     $this->{DIFF_ROOT} =~ s/,v$//;
+    # If the RCS file exists in the Attic then we need to correct for
+    # this, stripping off the '/Attic' suffix in order to reduce the name
+    # to just the CVS root.
+    if ($this->{DIFF_ROOT} =~ m/Attic/) {
+      $this->{DIFF_ROOT} = substr($this->{DIFF_ROOT}, 0, -6);
+    }
     # XXX More error checking--that filename exists and that it is in fact
     # part of the rcs filename
     $this->{DIFF_ROOT} = substr($this->{DIFF_ROOT}, 0,
