@@ -41,7 +41,9 @@ sub next_line {
   return if $line =~ /^\?/;
 
   # patch header parsing
-  if ($line =~ /^---\s*(\S+)\s*\t([^\t\r\n]*)\s*(\S*)/) {
+  if ($line =~ /^---\s*([\S ]+)\s*\t([^\t\r\n]*)\s*(\S*)/) {
+    $this->_maybe_end_file();
+
     if ($1 eq "/dev/null") {
       $this->{FILE_STATE}{is_add} = 1;
     } else {
@@ -52,7 +54,7 @@ sub next_line {
 
     $this->{IN_HEADER} = 1;
 
-  } elsif ($line =~ /^\+\+\+\s*(\S+)\s*\t([^\t\r\n]*)(\S*)/) {
+  } elsif ($line =~ /^\+\+\+\s*([\S ]+)\s*\t([^\t\r\n]*)(\S*)/) {
     if ($1 eq "/dev/null") {
       $this->{FILE_STATE}{is_remove} = 1;
     }
@@ -61,7 +63,7 @@ sub next_line {
 
     $this->{IN_HEADER} = 1;
 
-  } elsif ($line =~ /^RCS file: (.+)/) {
+  } elsif ($line =~ /^RCS file: ([\S ]+)/) {
     $this->{FILE_STATE}{rcs_filename} = $1;
 
     $this->{IN_HEADER} = 1;
@@ -71,7 +73,7 @@ sub next_line {
 
     $this->{IN_HEADER} = 1;
 
-  } elsif ($line =~ /^Index:\s*(.+)/) {
+  } elsif ($line =~ /^Index:\s*([\S ]+)/) {
     $this->_maybe_end_file();
 
     $this->{FILE_STATE}{filename} = $1;
@@ -133,14 +135,16 @@ sub next_line {
                                new_start => $new_start, new_lines => $new_lines,
                                minus_lines => 0, plus_lines => 0
                              };
+  }
 
-  # line parsing
-  } elsif ($line =~ /^ /) {
+  # line parsing (only when inside a section)
+  return if $this->{IN_HEADER};
+  if ($line =~ /^ /) {
     push @{$this->{SECTION_STATE}{lines}}, $line;
-  } elsif ($line =~ /^-($|[^-])/) {
+  } elsif ($line =~ /^-/) {
     $this->{SECTION_STATE}{minus_lines}++;
     push @{$this->{SECTION_STATE}{lines}}, $line;
-  } elsif ($line =~ /^\+($|[^+])/) {
+  } elsif ($line =~ /^\+/) {
     $this->{SECTION_STATE}{plus_lines}++;
     push @{$this->{SECTION_STATE}{lines}}, $line;
   } elsif ($line =~ /^< /) {
