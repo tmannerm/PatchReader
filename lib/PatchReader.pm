@@ -78,6 +78,38 @@ You can do this by mimicking one of the existing readers (such as
 PatchInfoGrabber) and overriding the methods start_patch, start_file, section,
 end_file and end_patch.
 
+=head1 AUTHORS
+
+ John Keiser <jkeiser@cpan.org>
+ Teemu Mannermaa <tmannerm@cpan.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+ Copyright (C) 2003-2004, John Keiser and
+ Copyright (C) 2011-2012, Teemu Mannermaa.
+
+This module is free software; you can redistribute it and/or modify it under
+the terms of the Artistic License 1.0. For details, see the full text of the
+license at
+ <http://www.perlfoundation.org/artistic_license_1_0>.
+
+This module is distributed in the hope that it will be useful, but it is
+provided “as is” and without any warranty; without even the implied warranty
+of merchantability or fitness for a particular purpose.
+
+Files with different licenses or copyright holders:
+
+=over 
+
+=item F<lib/PatchReader/CVSClient.pm>
+
+Portions created by Netscape are
+Copyright (C) 2003, Netscape Communications Corporation. All rights reserved.
+
+This file is subject to the terms of the Mozilla Public License, v. 2.0.
+
+=back
+
 =cut
 
 $PatchReader::VERSION = '0.9.7';

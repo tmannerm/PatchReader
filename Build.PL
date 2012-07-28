@@ -1,6 +1,7 @@
 use Module::Build;
 Module::Build->new(
   module_name        => 'PatchReader',
+  license            => 'artistic',
   requires           => {
     Cwd                => 2.0,
     File::Temp         => 0.05

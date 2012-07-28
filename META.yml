@@ -9,7 +9,7 @@ build_requires:
 configure_requires:
   Module::Build: 0.36
 generated_by: 'Module::Build version 0.3607'
-license: unknown
+license: artistic
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
   version: 1.4
@@ -42,5 +42,6 @@ requires:
   Cwd: 2
   File::Temp: 0.05
 resources:
+  license: http://opensource.org/licenses/artistic-license.php
   repository: https://github.com/tmannerm/PatchReader/
 version: 0.9.7
