@@ -1,12 +1,46 @@
-# http://module-build.sourceforge.net/META-spec.html
-#XXXXXXX This is a prototype!!!  It will change in the future!!! XXXXX#
-name:         PatchReader
-version:      0.9.6
-version_from: lib/PatchReader.pm
-installdirs:  site
+---
+abstract: 'Utilities to read and manipulate patches and CVS'
+author:
+  - 'John Keiser <john@johnkeiser.com>'
+build_requires:
+  Data::Dumper: 0
+  File::Find: 0
+  Test::More: 0
+configure_requires:
+  Module::Build: 0.36
+generated_by: 'Module::Build version 0.3607'
+license: unknown
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: PatchReader
+provides:
+  PatchReader:
+    file: lib/PatchReader.pm
+    version: 0.9.7
+  PatchReader::AddCVSContext:
+    file: lib/PatchReader/AddCVSContext.pm
+  PatchReader::Base:
+    file: lib/PatchReader/Base.pm
+  PatchReader::CVSClient:
+    file: lib/PatchReader/CVSClient.pm
+  PatchReader::DiffPrinter::raw:
+    file: lib/PatchReader/DiffPrinter/raw.pm
+  PatchReader::DiffPrinter::template:
+    file: lib/PatchReader/DiffPrinter/template.pm
+  PatchReader::FilterPatch:
+    file: lib/PatchReader/FilterPatch.pm
+  PatchReader::FixPatchRoot:
+    file: lib/PatchReader/FixPatchRoot.pm
+  PatchReader::NarrowPatch:
+    file: lib/PatchReader/NarrowPatch.pm
+  PatchReader::PatchInfoGrabber:
+    file: lib/PatchReader/PatchInfoGrabber.pm
+  PatchReader::Raw:
+    file: lib/PatchReader/Raw.pm
 requires:
-    Cwd:                           2
-    File::Temp:                    0.05
-
-distribution_type: module
-generated_by: ExtUtils::MakeMaker version 6.30
+  Cwd: 2
+  File::Temp: 0.05
+resources:
+  repository: https://github.com/tmannerm/PatchReader/
+version: 0.9.7

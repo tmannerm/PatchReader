@@ -1,0 +1,9 @@
+blib
+_build
+Build
+*.bak
+*.old
+Makefile
+MYMETA.yml
+PatchReader-*
+pm_to_*

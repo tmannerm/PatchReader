@@ -17,3 +17,5 @@
   Fix FixPatchRoot w/DOS eol patches (RT bug #35362, regression from v0.9.3)
   Attic file support for FixPatchRoot (RT bug #40467)
   Multiple file patch support (RT bug #47625)
+0.9.7 7/x/2012
+  Add a Build.PL script to optionally build with Module::Build

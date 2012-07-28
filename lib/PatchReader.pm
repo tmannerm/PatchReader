@@ -80,6 +80,6 @@ end_file and end_patch.
 
 =cut
 
-$PatchReader::VERSION = '0.9.6';
+$PatchReader::VERSION = '0.9.7';
 
 1

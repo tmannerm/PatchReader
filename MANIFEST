@@ -1,3 +1,5 @@
+.gitignore
+Build.PL
 Changes
 lib/PatchReader.pm
 lib/PatchReader/AddCVSContext.pm
@@ -12,7 +14,8 @@ lib/PatchReader/PatchInfoGrabber.pm
 lib/PatchReader/Raw.pm
 Makefile.PL
 MANIFEST
-META.yml			Module meta-data (added by MakeMaker)
+MANIFEST.SKIP
+META.yml
 README
 t/001use.t
 t/002cvsdiff.t
