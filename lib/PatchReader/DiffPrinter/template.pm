@@ -1,4 +1,4 @@
-package PatchReader::DiffPrinter::template;
+package Bugzilla::PatchReader::DiffPrinter::template;
 
 use strict;
 
@@ -14,6 +14,7 @@ sub new {
   $this->{FOOTER_TEMPLATE} = $_[3];
   $this->{ARGS} = $_[4] || {};
 
+  $this->{ARGS}{file_count} = 0;
   return $this;
 }
 
@@ -31,6 +32,7 @@ sub end_patch {
 
 sub start_file {
   my $this = shift;
+  $this->{ARGS}{file_count}++;
   $this->{ARGS}{file} = shift;
   $this->{ARGS}{file}{plus_lines} = 0;
   $this->{ARGS}{file}{minus_lines} = 0;
