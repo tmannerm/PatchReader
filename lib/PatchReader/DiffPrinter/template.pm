@@ -1,4 +1,4 @@
-package Bugzilla::PatchReader::DiffPrinter::template;
+package PatchReader::DiffPrinter::template;
 
 use strict;
 
