@@ -141,7 +141,9 @@ sub next_line {
   return if $this->{IN_HEADER};
   if ($line =~ /^ /) {
     push @{$this->{SECTION_STATE}{lines}}, $line;
-  } elsif ($line =~ /^-/) {
+  } elsif ($line =~ /^-/ && $line !~ /^-- $/) {
+    # '-- ' is usually seen at the end of a git formatted patch file,
+    # Don't match it here.
     $this->{SECTION_STATE}{minus_lines}++;
     push @{$this->{SECTION_STATE}{lines}}, $line;
   } elsif ($line =~ /^\+/) {
