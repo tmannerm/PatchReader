@@ -5,7 +5,9 @@ use strict;
 sub new {
   my $class = shift;
   $class = ref($class) || $class;
-  my $this = {};
+  my $this = {
+    IN_HEADER => 1
+  };
   bless $this, $class;
 
   return $this;
