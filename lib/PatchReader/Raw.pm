@@ -173,8 +173,15 @@ sub end_lines {
   $this->{TARGET}->end_patch(@_);
 }
 
+sub _init_state {
+  my $this = shift;
+  $this->{SECTION_STATE}{minus_lines} ||= 0;
+  $this->{SECTION_STATE}{plus_lines} ||= 0;
+}
+
 sub _maybe_start_file {
   my $this = shift;
+  $this->_init_state();
   if (exists($this->{FILE_STATE}) && !$this->{FILE_STARTED} ||
       $this->{FILE_NEVER_STARTED}) {
     $this->_start_file();
@@ -183,6 +190,7 @@ sub _maybe_start_file {
 
 sub _maybe_end_file {
   my $this = shift;
+  $this->_init_state();
   return if $this->{IN_HEADER};
 
   $this->_maybe_end_section();
